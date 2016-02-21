@@ -1,0 +1,19 @@
+{% extends "layout.nunjucks" %}
+
+{% block content %}
+    <h1>Reset Password</h1>
+    <div>
+        <form method="post">
+            <div class="form-group">
+                <label for="passwordInput">Password</label>
+                <input required type="password" class="form-control" name="password" id="passwordInput" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="passwordConfirmInput">Confirm Password</label>
+                <input type="password" class="form-control" name="passwordConf" id="passwordConfirmInput"
+                       placeholder="Confirm Password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+    </div>
+{% endblock %}

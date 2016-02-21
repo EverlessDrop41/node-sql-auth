@@ -1,0 +1,8 @@
+{% extends "layout.nunjucks" %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1>Basic User Auth</h1>
+        <p>This is a basic user auth system made using node.js and sql</p>
+    </div>
+{% endblock %}

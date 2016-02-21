@@ -1,0 +1,46 @@
+{% extends "layout.nunjucks" %}
+
+{% block content %}
+    <h1>Profile</h1>
+    <div>
+            <div class="form-group">
+                <label for="email">Email: </label>
+                <span id="email">{{ user.email }}</span>
+            </div>
+
+        <hr>
+
+        <h3>Change Email</h3>
+        <form action="/change/email" method="post">
+            <div class="form-group">
+                <label for="passwordCurrentInput">Current Password</label>
+                <input required type="passwordCurrent" class="form-control" name="password" id="passwordCurrentInput" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="newEmail">New Email</label>
+                <input required type="passwordNew" class="form-control" name="newEmail" id="newEmail" placeholder="New Email">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+
+        <hr>
+
+        <h3>Change Password</h3>
+        <form action="/change/password" method="post">
+            <div class="form-group">
+                <label for="passwordCurrentInput">Current Password</label>
+                <input required type="passwordCurrent" class="form-control" name="password" id="passwordCurrentInput" placeholder="Current Password">
+            </div>
+            <div class="form-group">
+                <label for="passwordNewInput">New Password</label>
+                <input required type="passwordNew" class="form-control" name="passwordNew" id="passwordNewInput" placeholder="New Password">
+            </div>
+            <div class="form-group">
+                <label for="passwordNewConfirmInput">Confirm New Password</label>
+                <input type="password" class="form-control" name="passwordNewConf" id="passwordNewConfirmInput"
+                       placeholder="Confirm Password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+    </div>
+{% endblock %}
