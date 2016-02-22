@@ -2,7 +2,7 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{sql_user_auth node_modules}" />
-    <file url="PROJECT" libraries="{bootstrap, sql_user_auth node_modules}" />
+    <file url="PROJECT" libraries="{sql_user_auth node_modules}" />
     <includedPredefinedLibrary name="Node.js Core" />
   </component>
 </project>

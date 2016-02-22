@@ -11,14 +11,29 @@
         <hr>
 
         <h3>Change Email</h3>
-        <form action="/change/email" method="post">
-            <div class="form-group">
-                <label for="passwordCurrentInput">Current Password</label>
-                <input required type="passwordCurrent" class="form-control" name="password" id="passwordCurrentInput" placeholder="Password">
-            </div>
+        <form action="/change/email" method="post" autocomplete=off>
             <div class="form-group">
                 <label for="newEmail">New Email</label>
-                <input required type="passwordNew" class="form-control" name="newEmail" id="newEmail" placeholder="New Email">
+                <input required type="text" class="form-control" name="newEmail" id="newEmail" placeholder="New Email">
+            </div>
+            <div class="form-group">
+                <label for="emailPass">Password</label>
+                <input required type="password" class="form-control" name="password" id="emailPass" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+
+        <hr>
+
+        <h3>Change Username</h3>
+        <form action="/change/username" method="post">
+            <div class="form-group">
+                <label for="usernamePass">Password</label>
+                <input required type="password" class="form-control" name="password" id="usernamePass" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="newUsername">New Username</label>
+                <input required type="text" class="form-control" name="newUsername" id="newUsername" placeholder="Username">
             </div>
             <button type="submit" class="btn btn-primary btn-block">Submit</button>
         </form>
@@ -29,11 +44,11 @@
         <form action="/change/password" method="post">
             <div class="form-group">
                 <label for="passwordCurrentInput">Current Password</label>
-                <input required type="passwordCurrent" class="form-control" name="password" id="passwordCurrentInput" placeholder="Current Password">
+                <input required type="password" class="form-control" name="password" id="passwordCurrentInput" placeholder="Current Password">
             </div>
             <div class="form-group">
                 <label for="passwordNewInput">New Password</label>
-                <input required type="passwordNew" class="form-control" name="passwordNew" id="passwordNewInput" placeholder="New Password">
+                <input required type="password" class="form-control" name="passwordNew" id="passwordNewInput" placeholder="New Password">
             </div>
             <div class="form-group">
                 <label for="passwordNewConfirmInput">Confirm New Password</label>

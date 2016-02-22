@@ -57,7 +57,8 @@ module.exports = function (app) {
                     } else {
                         qs = userModel.insert(
                             userModel.email.value(req.body.email),
-                            userModel.password.value(hash)
+                            userModel.password.value(hash),
+                            userModel.username.value(req.body.username)
                         ).toQuery();
                         console.log(qs.text + " " + qs.values);
                         app.locals.db.query(qs.text, qs.values, function (err, rows) {

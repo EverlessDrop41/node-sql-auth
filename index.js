@@ -52,8 +52,8 @@ sql.setDialect('mysql');
 
 var connection = mysql.createConnection({
     host     : 'localhost',
-    user     : 'dev',
-    password : 'pass',
+    //user     : 'dev',
+    //password : 'pass',
     database : 'node_user_test'
 });
 
