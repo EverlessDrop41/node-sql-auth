@@ -4,8 +4,8 @@
     <h1>Profile</h1>
     <div>
             <div class="form-group">
-                <label for="email">Email: </label>
-                <span id="email">{{ user.email }}</span>
+                <span id="email"><strong>Username: </strong>{{ user.username }}</span> <br>
+                <span id="email"><strong>Email: </strong>{{ user.email }}</span>
             </div>
 
         <hr>

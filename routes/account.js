@@ -31,6 +31,7 @@ module.exports = function (app) {
                         if (result) {
                             req.session.messages = [{type: "success", content: "Successfully Logged In"}];
                             req.session.user = rows[0];
+                            req.session.user.password = undefined;
                             res.redirect("/");
                         } else {
                             req.session.messages = [{type: "danger", content: "Incorrect email/ and or password"}];
