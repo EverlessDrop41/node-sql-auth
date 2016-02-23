@@ -254,7 +254,60 @@ module.exports = function (app) {
     });
 
     app.post('/change/email', function(req, res) {
-        var newEmail = req.body.newEmail;
-        var password = req.body.password;
+        bcrypt.genSalt(10, function(err, salt) {
+            if (err) {console.error(err)}
+            bcrypt.hash(req.body.password, salt, function(err, hash) {
+                if (err) {
+                    console.error(err);
+                    req.session.messages = [{type: "danger", content: "Error changing email"}];
+                    res.redirect('/profile');
+                } else {
+                    var emailUpdateQs = userModel.update({
+                        email: req.body.newEmail
+                    }).where(userModel.id.equals(req.session.user.id).and(userModel.password.equals(hash))).toQuery();
+
+                    app.locals.db.query(emailUpdateQs.text, emailUpdateQs.values, function (err, rows) {
+                       if (err) {
+                           console.error(err);
+                           req.session.messages = [{type: "danger", content: "Error changing email"}];
+                           res.redirect('/profile');
+                       } else {
+                           req.session.user.email = req.body.newEmail;
+                           req.session.messages = [{type: "success", content: "Successfully changed email"}];
+                           res.redirect('/profile');
+                       }
+                    });
+                }
+            });
+        });
+    });
+
+    app.post('/change/username', function(req, res) {
+        bcrypt.genSalt(10, function(err, salt) {
+            if (err) {console.error(err)}
+            bcrypt.hash(req.body.password, salt, function(err, hash) {
+                if (err) {
+                    console.error(err);
+                    req.session.messages = [{type: "danger", content: "Error changing username"}];
+                    res.redirect('/profile');
+                } else {
+                    var usernameUpdateQs = userModel.update({
+                        username: req.body.newUsername
+                    }).where(userModel.id.equals(req.session.user.id).and(userModel.password.equals(hash))).toQuery();
+
+                    app.locals.db.query(usernameUpdateQs.text, usernameUpdateQs.values, function (err, rows) {
+                        if (err) {
+                            console.error(err);
+                            req.session.messages = [{type: "danger", content: "Error changing username"}];
+                            res.redirect('/profile');
+                        } else {
+                            req.session.user.username = req.body.newUsername;
+                            req.session.messages = [{type: "success", content: "Successfully changed username"}];
+                            res.redirect('/profile');
+                        }
+                    });
+                }
+            });
+        });
     });
 };
